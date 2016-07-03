@@ -778,7 +778,7 @@ namespace CloudinaryDotNet.Test
             Assert.IsTrue(result.Resources.Where(res => (res.Context == null ? false : res.Context["custom"]["context"].ToString() == "abc")).Count() > 0);
         }
 
-        [Test]
+        [Test, Ignore("test needs to be re-written with mocking - it fails when there are many resources")]
         public void TestResourcesListingDirection()
         {
             // should allow listing resources in both directions
@@ -804,7 +804,7 @@ namespace CloudinaryDotNet.Test
             Assert.AreEqual(list1.Length, list2.Length);
             for (int i = 0; i < list1.Length; i++)
             {
-                Assert.AreEqual(list1[i], list2[i]);
+                Assert.AreEqual(list1[i], list2[i],"String # " + i + " was different");
             }
         }
 
