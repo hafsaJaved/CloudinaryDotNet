@@ -2228,7 +2228,7 @@ namespace CloudinaryDotNet.Test
             CollectionAssert.AreEquivalent(expectedList2, actualList2);
         }
 
-        [Test, Ignore("Ignored until 'General error' issue solved")]
+        [Test]
         public void TestResponsiveBreakpoints()
         {
             var breakpoint = new ResponsiveBreakpoint().MaxImages(5).BytesStep(20)
