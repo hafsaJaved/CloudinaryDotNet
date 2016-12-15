@@ -2400,6 +2400,21 @@ namespace CloudinaryDotNet.Test
         }
 
         [Test]
+        public void TestCreateArchiveMultiplePublicIds()
+        {
+            // should support archiving based on multiple public IDs
+            
+            string targetPublicId = string.Format("archive_id_{0}", UnixTimeNow());
+
+            UploadImageForTestArchive(archiveTag, 2.0, true);
+
+            ArchiveParams parameters = new ArchiveParams().PublicIds(new List<string> { "sample", "TestImage" }).TargetPublicId(targetPublicId);
+            ArchiveResult result = m_cloudinary.CreateArchive(parameters);
+            Assert.AreEqual(string.Format("{0}.zip", targetPublicId), result.PublicId);
+            Assert.AreEqual(2, result.FileCount);
+        }
+
+        [Test]
         public void TestDownloadArchive()
         {
             string archiveTag = string.Format("archive_tag_{0}", UnixTimeNow());
