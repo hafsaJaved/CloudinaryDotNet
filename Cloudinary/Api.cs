@@ -585,9 +585,13 @@ namespace CloudinaryDotNet
             Console.WriteLine(String.Format("{0}: {1}", key, value));
 #endif
             WriteLine(writer, "--{0}", HTTP_BOUNDARY);
+                Console.WriteLine(writer, "--{0}", HTTP_BOUNDARY);
             WriteLine(writer, "Content-Disposition: form-data; name=\"{0}\"", key);
+                Console.WriteLine(writer, "Content-Disposition: form-data; name=\"{0}\"", key);
             WriteLine(writer);
+                Console.WriteLine(writer);
             WriteLine(writer, value);
+                Console.WriteLine(writer, value);
         }
 
         private void WriteFile(StreamWriter writer, FileDescription file)
