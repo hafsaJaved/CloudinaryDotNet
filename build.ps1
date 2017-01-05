@@ -8,4 +8,4 @@ $msbuildExe = join-path -path (Get-ItemProperty $regKey).$regProperty -childpath
 
 &$msbuildExe Cloudinary\Cloudinary.csproj /t:"Build" /p:"Configuration="Release";TargetFrameworkVersion="v3.5";Sign="$sign""
 &$msbuildExe Cloudinary\Cloudinary.csproj /t:"Build" /p:"Configuration="Release";TargetFrameworkVersion="v4.0";Sign="$sign""
-.nuget\NuGet.exe pack CloudinaryDotNet.nuspec
+.nuget\nuget.exe pack CloudinaryDotNet.nuspec
