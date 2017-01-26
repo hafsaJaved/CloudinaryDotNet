@@ -3,10 +3,12 @@ solution: Cloudinary.sln
 install:
 - nuget restore Cloudinary.sln
 - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-- cp Cloudinary.Test/app.config.sample Cloudinary.Test/app.config
 script:
 - xbuild /p:Configuration=Release Cloudinary.sln
 - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Cloudinary.Test/bin/Debug/Cloudinary.Test.dll
 env:
   matrix:
     secure: L7q0HDFOHuhiUHOWf9bicUZ1QdYj6TJK9h8Arl3cV4Mq8tfH3YrTZDYBmMv1Z3qgKgDpSq6L8m8rWqwx7vfATphhv2gcJp92gwTBfp+JghGe3fYlWhtUS0EY3B9XzTWsZ18H1+/CQGgCbggZeSHQ2gzs9ng1NyqN90Ukj0EndsWtnguh79AqU5jRLips+rcBtNWDpecfDqE6lBD5AdIlUyRmXxu2ghT64CIQbB7Bgnd/o2dLDUHYAZzMMYEHX2y6P75siYXI3HLQPhcA87OeOVXpUmQgd/d/NMyJA9E9MHsQ+eozNA/x5cKpceTtbcfHYFXQBt04G1cVQDGqYEMyVux99jbEiMTlut5D9+jhCYBidDSPJaK2KJlH6rSDDNJzRV96SowiDK5T36m7LNuikFJ750wHnIuXfQ7oQo4giXJXOo1qRSE5sDbGFneXiFk/Ixec5CKkoyMieTpTL3q3WNMlPfjA9/0RlOo24LnMCxFW5GlyBiTgg8IH8hp5WmkqDIOQfhhZmIMIuLauKKqjZC9lGvaupmJPkY6Y9bNYahoTV40gthxQlLyAq6U49OQFonGjmiHFMcnxeFOkgBke1XtpQCc/qWlF6MowT/GvnlLmvyxpoz4XTXVUbLfWuDWnPEp3rhDcYf968GSkltXh43nZY997Q80Zb3Imtei41rA=
+before_install:
+- openssl aes-256-cbc -K $encrypted_f383df87f69c_key -iv $encrypted_f383df87f69c_iv
+  -in app.config.enc -out Cloudinary.Test/app.config -d
