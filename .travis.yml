@@ -3,6 +3,7 @@ solution: Cloudinary.sln
 install:
 - nuget restore Cloudinary.sln
 - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+- cp Cloudinary.Test/app.config.sample Cloudinary.Test/app.config
 script:
 - xbuild /p:Configuration=Release Cloudinary.sln
 - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./CloudinaryDotNet/Cloudinary.Test/bin/Debug/Cloudinary.Test.dll
