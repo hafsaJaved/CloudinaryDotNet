@@ -84,9 +84,9 @@ namespace CloudinaryDotNet.Test
         /// <returns>New Account instance</returns>
         private Account GetAccountInstance()
         {
-            string cloudName = string.IsNullOrWhiteSpace(ClodinarySettings.Settings.CloudName) ? SettingsReader.ReadSetting("ApiBaseAddress") : ClodinarySettings.Settings.CloudName;
-            string apiKey = string.IsNullOrWhiteSpace(ClodinarySettings.Settings.ApiKey) ? SettingsReader.ReadSetting("ApiKey") : ClodinarySettings.Settings.ApiKey;
-            string apiSecret = string.IsNullOrWhiteSpace(ClodinarySettings.Settings.ApiSecret) ? SettingsReader.ReadSetting("ApiSecret") : ClodinarySettings.Settings.ApiSecret;
+            string cloudName = string.IsNullOrWhiteSpace(CloudinarySettings.Settings.CloudName) ? SettingsReader.ReadSetting("ApiBaseAddress") : CloudinarySettings.Settings.CloudName;
+            string apiKey = string.IsNullOrWhiteSpace(CloudinarySettings.Settings.ApiKey) ? SettingsReader.ReadSetting("ApiKey") : CloudinarySettings.Settings.ApiKey;
+            string apiSecret = string.IsNullOrWhiteSpace(CloudinarySettings.Settings.ApiSecret) ? SettingsReader.ReadSetting("ApiSecret") : CloudinarySettings.Settings.ApiSecret;
 
             Account account = new Account(
                 cloudName,
@@ -109,16 +109,15 @@ namespace CloudinaryDotNet.Test
         }
 
         /// <summary>
-        /// A convenient method for initialization of new Coudinary instance with necessary checks
+        /// A convenient method for initialization of new Cloudinary instance with necessary checks
         /// </summary>
         /// <param name="account">Instance of Account</param>
         /// <returns>New Cloudinary instance</returns>
         protected Cloudinary GetCloudinaryInstance(Account account)
         {
             Cloudinary cloudinary = new Cloudinary(account);
-            string apiAddressBase = string.IsNullOrWhiteSpace(ClodinarySettings.Settings.ApiBaseAddress) ? SettingsReader.ReadSetting("ApiBaseAddress") : ClodinarySettings.Settings.ApiBaseAddress;
+            string apiAddressBase = string.IsNullOrWhiteSpace(CloudinarySettings.Settings.ApiBaseAddress) ? SettingsReader.ReadSetting("ApiBaseAddress") : CloudinarySettings.Settings.ApiBaseAddress;
             cloudinary.Api.ApiBaseAddress = apiAddressBase;
-
             return cloudinary;
         }
 
@@ -128,12 +127,12 @@ namespace CloudinaryDotNet.Test
         /// <param name="requestParams">Parameters for Cloudinary call</param>
         /// <param name="cloudinaryCall">Cloudinary call, e.g. "(cloudinaryInstance, params) => {return cloudinaryInstance.Text(params); }"</param>
         /// <returns></returns>
-        protected string GetMockBodyOfCoudinaryRequest<TParams, TResult>(TParams requestParams, Func<Cloudinary, TParams, TResult> cloudinaryCall)
+        protected string GetMockBodyOfCloudinaryRequest<TParams, TResult>(TParams requestParams, Func<Cloudinary, TParams, TResult> cloudinaryCall)
             where TParams : BaseParams
             where TResult : BaseResult
         {
             HttpWebRequest request = null;
-            return GetMockBodyOfCoudinaryRequest(requestParams, cloudinaryCall, out request);
+            return GetMockBodyOfCloudinaryRequest(requestParams, cloudinaryCall, out request);
         }
 
         /// <summary>
@@ -143,7 +142,7 @@ namespace CloudinaryDotNet.Test
         /// <param name="cloudinaryCall">Cloudinary call, e.g. "(cloudinaryInstance, params) => {return cloudinaryInstance.Text(params); }"</param>
         /// <param name="request">HttpWebRequest object as out parameter for further analyze of properties</param>
         /// <returns></returns>
-        protected string GetMockBodyOfCoudinaryRequest<TParams, TResult>(TParams requestParams, Func<Cloudinary, TParams, TResult> cloudinaryCall, out HttpWebRequest request)
+        protected string GetMockBodyOfCloudinaryRequest<TParams, TResult>(TParams requestParams, Func<Cloudinary, TParams, TResult> cloudinaryCall, out HttpWebRequest request)
             where TParams : BaseParams
             where TResult : BaseResult
         {
