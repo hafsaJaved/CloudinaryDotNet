@@ -117,7 +117,8 @@ namespace CloudinaryDotNet.Test
         {
             Cloudinary cloudinary = new Cloudinary(account);
             string apiAddressBase = string.IsNullOrWhiteSpace(CloudinarySettings.Settings.ApiBaseAddress) ? SettingsReader.ReadSetting("ApiBaseAddress") : CloudinarySettings.Settings.ApiBaseAddress;
-            cloudinary.Api.ApiBaseAddress = apiAddressBase;
+            if (!String.IsNullOrWhiteSpace(apiAddressBase))
+                cloudinary.Api.ApiBaseAddress = apiAddressBase;
             return cloudinary;
         }
 
