@@ -1,7 +1,7 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Core;
-using CloudinaryDotNet.Shared.Coudinary.NetCoreShared;
-using Coudinary.NetCoreShared;
+using CloudinaryDotNet.Shared.Cloudinary.NetCoreShared;
+using Cloudinary.NetCoreShared;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

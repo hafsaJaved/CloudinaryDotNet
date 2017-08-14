@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 
-namespace Coudinary.NetCoreShared
+namespace Cloudinary.NetCoreShared
 {
     public static  class CloudinaryConfiguration
     {

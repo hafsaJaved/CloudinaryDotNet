@@ -1,6 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Coudinary.NetCoreShared;
+using Cloudinary.NetCoreShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
