@@ -134,10 +134,6 @@ namespace CloudinaryDotNet.Actions
             {
                 string s = reader.ReadToEnd();
 
-#if DEBUG
-                Console.WriteLine(String.Format("RESPONSE ({0}):", typeof(T).Name));
-                Console.WriteLine(s);
-#endif
 
                 result = JsonConvert.DeserializeObject<T>(s);
                 result.JsonObj = JToken.Parse(s);

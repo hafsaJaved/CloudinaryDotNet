@@ -79,10 +79,6 @@ namespace CloudinaryDotNet
         /// <returns>HTTP response on call</returns>
         public override object InternalCall(HttpMethod method, string url, SortedDictionary<string, object> parameters, FileDescription file, Dictionary<string, string> extraHeaders = null)
         {
-#if DEBUG
-            Console.WriteLine(String.Format("{0} REQUEST:", method));
-            Console.WriteLine(url);
-#endif
 
             HttpWebRequest request = RequestBuilder(url);
             request.Method = Enum.GetName(typeof(HttpMethod), method);
@@ -187,10 +183,6 @@ namespace CloudinaryDotNet
         /// <returns>HTTP response on call</returns>
         public HttpWebResponse Call(HttpMethod method, string url, SortedDictionary<string, object> parameters, FileDescription file, Dictionary<string, string> extraHeaders = null)
         {
-#if DEBUG
-            Console.WriteLine(String.Format("{0} REQUEST:", method));
-            Console.WriteLine(url);
-#endif
 
             HttpWebRequest request = RequestBuilder(url);
             request.Method = Enum.GetName(typeof(HttpMethod), method);

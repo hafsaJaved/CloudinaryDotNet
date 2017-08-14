@@ -467,9 +467,6 @@ namespace CloudinaryShared.Core
 
         protected void WriteParam(StreamWriter writer, string key, string value)
         {
-#if DEBUG
-            Console.WriteLine(String.Format("{0}: {1}", key, value));
-#endif
             WriteLine(writer, "--{0}", HTTP_BOUNDARY);
             WriteLine(writer, "Content-Disposition: form-data; name=\"{0}\"", key);
             WriteLine(writer);
