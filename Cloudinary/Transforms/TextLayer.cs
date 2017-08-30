@@ -64,8 +64,8 @@ namespace CloudinaryDotNet
         private string OverlayTextEncode(string text)
         {
             return HttpUtility.UrlEncodeUnicode(text)
-                .Replace("%2f", "/").Replace("%3a", ":").Replace("+", "%20")
-                .Replace("%2c", "%e2%80%9a").Replace("/", "%e2%81%84");
+                .Replace("%2f", "%252f").Replace("%3a", ":").Replace("+", "%20")
+                .Replace("%2c", "%252c").Replace("/", "%252f").Replace(",", "%252c");
         }
 
         /// <summary>

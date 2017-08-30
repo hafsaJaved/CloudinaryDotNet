@@ -394,14 +394,14 @@ namespace CloudinaryDotNet.Test
             layerTests.Add(new Layer().ResourceType("video").PublicId("cat"), "video:cat");
             layerTests.Add(new TextLayer().Text("Hello World, Nice to meet you?")
                                               .FontFamily("Arial")
-                                              .FontSize(18), "text:Arial_18:Hello%20World%E2%80%9A%20Nice%20to%20meet%20you%3F");
+                                              .FontSize(18), "text:Arial_18:Hello%20World%252c%20Nice%20to%20meet%20you%3f");
             layerTests.Add(new TextLayer("Hello World, Nice to meet you?")
                                               .FontFamily("Arial")
                                               .FontSize(18)
                                               .FontWeight("bold")
                                               .FontStyle("italic")
                                               .LetterSpacing("4")
-                                              .LineSpacing("3"), "text:Arial_18_bold_italic_letter_spacing_4_line_spacing_3:Hello%20World%E2%80%9A%20Nice%20to%20meet%20you%3F");
+                                              .LineSpacing("3"), "text:Arial_18_bold_italic_letter_spacing_4_line_spacing_3:Hello%20World%252c%20Nice%20to%20meet%20you%3f");
             layerTests.Add(new SubtitlesLayer().PublicId("sample_sub_en.srt"), "subtitles:sample_sub_en.srt");
             layerTests.Add(new SubtitlesLayer().PublicId("sample_sub_he.srt").FontFamily("Arial").FontSize(40), "subtitles:Arial_40:sample_sub_he.srt");
 
